@@ -23,16 +23,20 @@ function App() {
   const [need ,setneed] = useState(null)
   const [bunk, setbunk] = useState(null)
   
-  const click=() =>{
+  const percent=() =>{
+    
     setfinal((absent/total)*100)
 
+  }
+  const attend = ()=>{
     if (final<80){
-      setneed(((80-absent)/100)-total )
+      setneed((80- absent) * (total/100))
+      alert(need)
     }
     else{
-      setbunk(((80-total)/100)*absent)
+      setbunk((0.8*total)-absent)
+      alert(bunk)
     }
-
   }
 
   const Total =event=>{
@@ -49,11 +53,11 @@ function App() {
       <Stack spacing={3} m={5}>
         <Input placeholder='Enter the total working hour' onChange={Total} size='lg' />
         <Input placeholder='Enter the present hour' id='present_hour' onChange={Absent} size='lg' />
-        <Button colorScheme='blue' onClick={click} >Button</Button>
+        <Button colorScheme='blue' onClick={percent} >percent</Button>
+        <Button colorScheme='blue' onClick={attend} >scenario</Button>
         <h1>you have: {final}</h1>
-        
-        <h1>hj{need}</h1>
-        <h1>{bunk}</h1>
+
+      
        
       </Stack>
 
