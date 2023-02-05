@@ -14,11 +14,16 @@ function App() {
   const [need, setneed] = useState(null);
   const [bunk, setbunk] = useState(null);
 
+  const reset = () =>{
+    setabsent(null);
+    setData(null);
+  }
   const percent = useCallback(() => {
-    console.log("hello");
+    console.log(absent, total, absent/total);
     setfinal((absent / total) * 100);
+    reset();
     // eslint-disable-next-line
-  }, []);
+  }, [absent, total]);
 
   const attend = useCallback(() => {
     if (final < 80) {
@@ -28,6 +33,7 @@ function App() {
       setbunk(0.8 * total - absent);
       alert(bunk);
     }
+    reset();
     // eslint-disable-next-line
   }, []);
 
@@ -36,7 +42,7 @@ function App() {
       setData(parseInt(event.target.value));
     },
     // eslint-disable-next-line
-    []
+    [absent, total]
   );
 
   const Absent = useCallback(eve => {
