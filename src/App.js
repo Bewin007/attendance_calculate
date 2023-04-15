@@ -4,11 +4,11 @@ import {
   Box,
   Text,
   Link,
-  VStack,
+  VStack,   
   Code,
   Grid,
   theme,
-  Card,
+  Card, 
   Heading,
   Center
 } from '@chakra-ui/react';
