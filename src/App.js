@@ -9,6 +9,8 @@ import {
   Grid,
   theme,
   Card,
+  Heading,
+  Center
 } from '@chakra-ui/react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
 import {
@@ -57,10 +59,12 @@ function App() {
   return (
     <ChakraProvider theme={theme} >
       <Card margin={100} p={20} justifyContent={'center'} >
+        <Center>
+      <Heading>Attendance Calculator</Heading></Center>
       <Stack spacing={3} m={5}>
         <Input placeholder='Enter the total working hour' onChange={Total} size='lg' />
         <Input placeholder='Enter the present hour' id='present_hour' onChange={Absent} size='lg' />
-        <Button colorScheme='blue' onClick={percent} >percent</Button>
+        <Button colorScheme='blue' onClick={percent} >Detail</Button>
 
         <Text>{string}</Text>
         <Text>{operation}</Text>
